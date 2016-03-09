@@ -14,4 +14,4 @@ RUN \
     cd ${hudir} && \
     npm install
 
-CMD cd {$hudir}; bin/hubot --adapter slack
+CMD cd ${hudir}; bin/hubot --adapter slack
