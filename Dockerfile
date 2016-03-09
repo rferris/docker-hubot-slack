@@ -6,7 +6,7 @@ ENV hudir /hubot
 
 WORKDIR ${hudir}
 
-RUN mkdir {$hudir}
+RUN mkdir ${hudir}
 
 COPY * ${hudir}
 
