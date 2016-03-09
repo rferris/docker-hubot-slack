@@ -12,6 +12,7 @@ COPY hubot/ ${hudir}/
 
 RUN \
     cd ${hudir} && \
+    chmod +x bin/hubot && \
     npm install
 
 CMD bin/hubot --adapter slack
