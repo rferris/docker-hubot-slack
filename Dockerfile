@@ -8,7 +8,7 @@ WORKDIR ${hudir}
 
 #RUN mkdir ${hudir}
 
-COPY * ${hudir}
+COPY * ${hudir}/
 
 RUN \
     cd ${hudir} && \
