@@ -8,10 +8,10 @@ WORKDIR ${hudir}
 
 #RUN mkdir ${hudir}
 
-COPY * ${hudir}/
+COPY hubot/ ${hudir}/
 
 RUN \
     cd ${hudir} && \
     npm install
 
-CMD cd ${hudir}; bin/hubot --adapter slack
+CMD bin/hubot --adapter slack
