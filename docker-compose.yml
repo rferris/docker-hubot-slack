@@ -7,3 +7,6 @@ dockerhubot:
         - HUBOT_SLACK_TOKEN=placeholder
 hubotredis:
     image: redis
+    volumes:
+        -/srv/docker/hubot/redis/data:/data
+    command: redis-server --appendonly yes
