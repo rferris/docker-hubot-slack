@@ -1,0 +1,9 @@
+dockerhubot:
+    image: docker-hubot-slack:1
+    links:
+        - hubotredis
+    environment:
+        - REDIS_URL=redis://hubotredis:6379/hubot
+        - HUBOT_SLACK_TOKEN=placeholder
+hubotredis:
+    image: redis
