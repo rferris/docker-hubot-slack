@@ -1,28 +1,34 @@
 module.exports = function(robot) {
-    robot.respond(/^(.*)\+\+/i, function(res) {
-        var pointArray, currentPoint, itemName, newPoint, pointral;
-        itemName = res.match[1];
-        pointArray = robot.brain.get('pointArray');
+    robot.hear(/^(.*)\+\+/i, function(res) {
+        var result;
+        result = doPointChange(res.match[1], 1);
+        res.send(result);
+  });
 
-        if (pointArray == NULL) {
-            pointArray = Array;
+    robot.hear(/^(.*)\-\-/i, function(res) {
+      var result;
+      result = doPointChange(res.match[1], -1);
+      res.send(result);
+  });
+
+  doPointChange = function(itemName, changeAmount) {
+      var pointName, currentPoint, itemName, newPoint, pointral;
+      pointName = itemName + 'points';
+      point = robot.brain.get(pointName);
+
+        if (point == null) {
+            point = 0;
         }
 
-        if(typeof pointArray[itemName] === 'undefined') {
-            currentPoint = 0;
-        }
-        else {
-            currentPoint = pointArray[itemName];
-        }
+        newPoint = point + changeAmount;
 
-        newPoint = currentPoint++;
-        pointArray[itemName] = newPoint;
-        robot.brain.set('pointArray', pointArray);
+        robot.brain.set(pointName, newPoint);
+
         if (newPoint === 1 || newPoint === -1) {
           pointral = "point.";
         } else {
           pointral = "points.";
         }
-        res.send(itemName + " now has " + newPoint + " " + pointral);
-  });
+        return itemName + " now has " + newPoint + " " + pointral;
+    }
 };
