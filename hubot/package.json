@@ -18,10 +18,7 @@
     "hubot-scripts": "~2.16.2",
     "hubot-slack": "~3.4.2",
     "hubot": "~2.18.0",
-    "cheerio": "^0.19.0",
-    "hubot-aws": "~0.3.0",
-    "hubot-auth": "~1.2.0",
-    "aws-sdk": "~2.2.42"
+    "cheerio": "^0.19.0"
   },
   "engines": {
     "node": "0.10.x"
